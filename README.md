@@ -1,2 +1,4 @@
 # auto_googleAPI
-Edit google spreadsheet
+Edit google_spreadsheet
+save as PDF in google_drive
+and email to people
