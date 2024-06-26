@@ -104,6 +104,7 @@ def upload_to_drive(pdf_file):
 
 
 def read_password_from_file(file_path):
+    # The file is automatically closed when you exit the with block, even if an exception occurs.
     with open(file_path, 'r') as file:
         password = file.read().strip()
     return password
@@ -131,6 +132,8 @@ def send_email(pdf_file, day, recipient_email):
     msg.attach(MIMEText(body, 'plain'))
 
     # Attach PDF file to the email
+    # You need to explicitly close the file using close(). 
+    # If you forget or an exception occurs before close(), the file might remain open.
     attachment = open(pdf_file, "rb")
 
     # Create the attachment part
